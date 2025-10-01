@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculator</title>
+  <style>
+    button { cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>Calculator</h1>
+  <input type="number" id="num1">
+  <input type="number" id="num2">
+  <br><br>
+  <button onclick="calc('add')">Add</button>
+  <button onclick="calc('sub')">Subtract</button>
+  <button onclick="calc('mul')">Multiply</button>
+  <button onclick="calc('div')">Divide</button>
+  <p id="result"></p>
+
+  <script>
+    function calc(op){
+      let a = parseFloat(document.getElementById("num1").value);
+      let b = parseFloat(document.getElementById("num2").value);
+      let res = "";
+      switch(op){
+        case "add": res = a+b; break;
+        case "sub": res = a-b; break;
+        case "mul": res = a*b; break;
+        case "div": res = b!==0 ? a/b : "Error"; break;
+      }
+      document.getElementById("result").innerHTML = "Result: " + res;
+    }
+  </script>
+</body>
+</html>

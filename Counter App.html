@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Slider</title>
+  <style>
+    img { width:300px; }
+    button { cursor:pointer; }
+  </style>
+</head>
+<body>
+  <h1>Image Slider</h1>
+  <img id="slider" src="img1.jpg" alt="slide">
+  <br><br>
+  <button onclick="nextImg()">Next</button>
+
+  <script>
+    let imgs = ["img1.jpg","img2.jpg","img3.jpg"];
+    let i = 0;
+    function nextImg(){
+      i = (i+1) % imgs.length;
+      document.getElementById("slider").src = imgs[i];
+    }
+  </script>
+</body>
+</html>

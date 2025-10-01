@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>Student Grade Calculator</title>
+        <style>
+            img{
+                width: 300px;
+            }
+            button{
+                cursor: pointer;
+            }
+        </style>
+    </head>
+
+    <body>
+        
+        <h1>Student Grade Calculator</h1>
+        <input type="text" id="name" placeholder="Enter Name">
+        <input type="number" id="marks" placeholder="Enter Marks">
+        <br><br>
+        <button onclick="cal()">Calculate</button>
+        <br><br>
+        <p id="result"></p>
+
+        <script>
+            function cal(){
+                let name = document.getElementById("name").value;
+                let marks = document.getElementById("marks").value;
+
+                if(marks>=90){
+                    document.getElementById("result").innerHTML = "Name: "+ name +" Grade: A";
+                }else if(marks>=75){
+                    document.getElementById("result").innerHTML = "Name: "+ name +" Grade: B";
+                }else if(marks>=50){
+                    document.getElementById("result").innerHTML = "Name: "+ name +" Grade: C";
+                }else{
+                    document.getElementById("result").innerHTML = "Name: "+ name +" Grade: F";
+                }
+            }
+        </script>
+        
+    </body>
+</html>

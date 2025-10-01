@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title>Employee Salary Bonus Calculator</title>
+        <style>
+            button {
+                cursor: pointer;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>Employee Salary Bonus Calculator</h1>
+        <input type="text" id="ename" placeholder="Enter Name">
+        <input type="number" id="salary" placeholder="Enter Salary">
+        <input type="number" id="exp" placeholder="Enter Years of Experience">
+        <br><br>
+        <button onclick="cal()">Calculate Bonus</button>
+        <br><br>
+        <p id="output"></p>
+
+        <script>
+            function cal() {
+                let ename = document.getElementById("ename").value;
+                let salary = parseFloat(document.getElementById("salary").value);
+                let exp = parseInt(document.getElementById("exp").value);
+
+                // Validation
+                if (ename === "" || isNaN(salary) || isNaN(exp)) {
+                    document.getElementById("output").innerHTML = "Please enter all fields!";
+                    return;
+                }
+
+                let bonus = 0;
+                if (exp >= 10) {
+                    bonus = 0.2 * salary;
+                } else if (exp >= 5) {
+                    bonus = 0.1 * salary;
+                } else {
+                    bonus = 0.05 * salary;
+                }
+
+                let total = salary + bonus;
+
+                document.getElementById("output").innerHTML =
+                    "Employee: " + ename + ", Bonus: " + bonus + ", Total Salary: " + total;
+            }
+        </script>
+    </body>
+</html>

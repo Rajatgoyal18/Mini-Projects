@@ -1,0 +1,77 @@
+<html>
+<head>
+    <title>Student Marks Table Generator</title>
+    <style>
+        button {
+            cursor: pointer;
+        }
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Student Marks Table Generator</h1>
+    
+    <input type="text" id="sname" placeholder="Enter Student Name">
+    <input type="number" id="smarks" placeholder="Enter Marks">
+    <br><br>
+    <button onclick="addStudent()">Add Student</button>
+    <br><br>
+    <p id="error"></p>
+
+    <table id="studentTable">
+        <tr>
+            <th>Name</th>
+            <th>Marks</th>
+            <th>Grade</th>
+        </tr>
+    </table>
+
+    <script>
+        function addStudent() {
+            let name = document.getElementById("sname").value;
+            let marks = parseInt(document.getElementById("smarks").value);
+            let errorMsg = document.getElementById("error");
+
+            // Validation
+            if (name === "" || isNaN(marks)) {
+                errorMsg.innerHTML = "⚠️ Please enter all fields!";
+                return;
+            } else {
+                errorMsg.innerHTML = ""; // clear error if valid
+            }
+
+            // Grade logic
+            let grade = "";
+            if (marks >= 90) {
+                grade = "A";
+            } else if (marks >= 75) {
+                grade = "B";
+            } else if (marks >= 50) {
+                grade = "C";
+            } else {
+                grade = "F";
+            }
+
+            // Insert into table
+            let table = document.getElementById("studentTable");
+            let row = table.insertRow();
+            let cell1 = row.insertCell(0);
+            let cell2 = row.insertCell(1);
+            let cell3 = row.insertCell(2);
+
+            cell1.innerHTML = name;
+            cell2.innerHTML = marks;
+            cell3.innerHTML = grade;
+
+            // Clear inputs after adding
+            document.getElementById("sname").value = "";
+            document.getElementById("smarks").value = "";
+        }
+    </script>
+</body>
+</html>

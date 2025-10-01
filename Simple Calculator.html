@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Validation</title>
+</head>
+<body>
+  <h1>User Form</h1>
+  <input type="text" id="name" placeholder="Enter name"><br><br>
+  <input type="text" id="email" placeholder="Enter email"><br><br>
+  <button onclick="validate()">Submit</button>
+  <p id="msg"></p>
+
+  <script>
+    function validate(){
+      let name = document.getElementById("name").value;
+      let email = document.getElementById("email").value;
+      if(name === ""){
+        document.getElementById("msg").innerHTML = "Name cannot be empty";
+      } else if(!email.includes("@")){
+        document.getElementById("msg").innerHTML = "Invalid email";
+      } else {
+        document.getElementById("msg").innerHTML = "Form submitted!";
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Todo List</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    button {
+      cursor: pointer; /* Objective 2 */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Objective 1 -->
+  <h1>Todo List</h1>  
+
+  <input type="text" id="task">
+  <button id="add">Add</button>
+  <ul id="list"></ul>
+
+  <script>
+    $(document).ready(function(){
+      // Add Task
+      $("#add").click(function(){
+        let task = $("#task").val();
+        if(task !== ""){
+          $("#list").append("<li>" + task + " <button class='delete'>Delete</button></li>");
+          $("#task").val("");
+        }
+      });
+
+      // Objective 3: Delete Task
+      $(document).on("click", ".delete", function(){
+        $(this).parent().remove();
+      });
+    });
+  </script>
+</body>
+</html>

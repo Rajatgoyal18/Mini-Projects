@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Counter App</title>
+</head>
+<body>
+  <h1>Counter</h1>
+  <p id="count">0</p>
+  <button onclick="inc()">Increment</button>
+  <button onclick="dec()">Decrement</button>
+  <button onclick="reset()">Reset</button>
+
+  <script>
+    let count = 0;
+    function inc(){ count++; document.getElementById("count").innerHTML = count; }
+    function dec(){ count--; document.getElementById("count").innerHTML = count; }
+    function reset(){ count=0; document.getElementById("count").innerHTML = count; }
+  </script>
+</body>
+</html>
